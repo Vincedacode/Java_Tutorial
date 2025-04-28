@@ -1,0 +1,155 @@
+package Object_and_classes;
+
+public class Students {
+    private String name;
+    private int age;
+    private String address;
+
+    private String course;
+
+    // Constructor
+    public Students(String myname, int myage, String myaddress, String mycourse) {
+        this.name = myname;
+        this.age = myage;
+        this.address = myaddress;
+        this.course = mycourse;
+    }
+
+    // Setter methods1
+    // Setter methods are used to change or set values of variables that are private
+    // Setter methods are also used to change or update values of attributes of a class
+    public void setName(String thename) {
+        this.name = thename;
+    }
+
+    public void setAge(int theage) {
+        if (theage > 0) {
+            this.age = theage;
+            System.out.println("You are "+ theage +" years old!");
+        } else {
+            System.out.println("Age must be positive!");
+        }
+    }
+
+    public void setAddress(String theaddress) {
+        this.address = theaddress;
+    }
+
+    public void setCourse(String thecourse) {
+        if (thecourse.equals("HTML") || thecourse.equals("CSS")) {
+            System.out.println("Not a programming language!");
+        } else {
+            this.course = thecourse;
+            System.out.println("You are studying " + thecourse);
+        }
+    }
+
+    public boolean isAdult(){
+        if(age >= 18){
+            System.out.println("You are old enough!, you are "+ age + " years old!");
+            return  true;
+        }else{
+            System.out.println("Wait till you are 18!");
+            return  false;
+        }
+    }
+
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getCourse() {
+      return  course;
+    }
+
+    public void introduction() {
+        System.out.println("My name is " + name + " ,my age is " + age + " and I live at " + address);
+    }
+
+        public void addCourse() {
+        System.out.println(name + " is studying " + course);
+    }
+
+
+    public static void main(String[] args) {
+        Students mystudent = new Students("Joe", 23, "Lagos", "Java");
+        mystudent.setAge(32);
+        mystudent.introduction();
+        mystudent.addCourse();
+        mystudent.setCourse("Software Engineering");
+        mystudent.isAdult();
+
+    }
+}
+
+    // Inheritance
+   class Person{
+    protected String name;
+    protected int age;
+
+
+
+    public Person(String myname, int myage){
+        this.name = myname;
+        this.age = myage;
+    }
+    // Method overloading - Naming methods with same name but different parameters. It is a form of polymorphism
+
+    public void introduce(){
+        System.out.println("My name is " + name + " and I am " + age + " years old" );
+    }
+    public void introduce(String greeting){
+        System.out.println(greeting + name);
+    }
+    public void introduce(String greeting, int year){
+        System.out.println(greeting + name + " we are in "+ year);
+    }
+
+        // End of method overloading
+
+        public void calculateBirthYear(int currentyear){
+            int result = currentyear - age;
+            System.out.println("Your birth year is "+ result + " and you are " + age + " years old");
+
+        }
+
+        public  void setAge( int theage){
+        if(theage < 0){
+            System.out.println("Invalid age entered!");
+        }else{
+            this.age = theage;
+            System.out.println("You are " + theage + " years old!");
+        }
+        }
+
+        public static void main(String[] args){
+       Person profile = new Person("John", 34);
+
+       profile.introduce("Welcome ", 2025);
+       profile.setAge(45);
+       profile.calculateBirthYear(2025);
+
+        }
+}
+
+
+
+
+class Mystudent extends Person{
+    private String address;
+    private int yearjoined;
+    public Mystudent(String myname, int myage, String myaddress, int year) {
+        super(myname, myage);
+        this.address = myaddress;
+        this.yearjoined = year;
+    }
+}

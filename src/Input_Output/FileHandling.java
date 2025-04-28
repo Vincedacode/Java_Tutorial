@@ -3,7 +3,7 @@ import java.io.*;
 public class FileHandling {
     public static void main(String[] args) {
         try {
-            File newfile = new File("example.txt");
+            File newfile = new File("newexample.txt");
             if(newfile.createNewFile()){
                 System.out.println("File created: " + newfile.getName());
             }else {
